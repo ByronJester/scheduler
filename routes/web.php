@@ -60,4 +60,9 @@ Route::post('/maintenance/room-schedule/update', [MaintenanceController::class, 
 Route::post('/upload-csv', [MaintenanceController::class, 'upload'])->name('csv.upload');
 
 
+Route::get('/alive', function () {
+    return response()->json("Keep Alive!", 200);
+});
+
+
 require __DIR__.'/auth.php';
