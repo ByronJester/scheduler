@@ -50,11 +50,13 @@ Route::get('/maintenance/teacher-schedule/create', [MaintenanceController::class
 Route::post('/maintenance/teacher-schedule/store', [MaintenanceController::class, 'teacherScheduleStore'])->name('teacher-schedule.store');
 Route::get('/maintenance/teacher-schedule/{id}/edit', [MaintenanceController::class, 'teacherScheduleEdit'])->name('teacher-schedule.edit.view');
 Route::post('/maintenance/teacher-schedule/update', [MaintenanceController::class, 'teacherScheduleUpdate'])->name('teacher-schedule.update');
+Route::post('/maintenance/teacher-schedule/{id}/delete', [MaintenanceController::class, 'teacherScheduleDelete'])->name('teacher-schedule.delete');
 
 Route::get('/maintenance/room-schedule/create', [MaintenanceController::class, 'roomScheduleCreate'])->name('room-schedule.create.view');
 Route::post('/maintenance/room-schedule/store', [MaintenanceController::class, 'roomScheduleStore'])->name('room-schedule.store');
 Route::get('/maintenance/room-schedule/{id}/edit', [MaintenanceController::class, 'roomScheduleEdit'])->name('room-schedule.edit.view');
 Route::post('/maintenance/room-schedule/update', [MaintenanceController::class, 'roomScheduleUpdate'])->name('room-schedule.update');
+Route::post('/maintenance/room-schedule/{id}/delete', [MaintenanceController::class, 'roomScheduleDelete'])->name('room-schedule.delete');
 
 
 Route::post('/upload-csv', [MaintenanceController::class, 'upload'])->name('csv.upload');

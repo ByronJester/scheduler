@@ -173,4 +173,19 @@ class MaintenanceController extends Controller
         return redirect()->back();
         // return response()->json(['message' => 'File uploaded successfully', 'data' => $csvData]);
     }
+
+
+    public function teacherScheduleDelete($id)
+    {
+        TeacherSchedule::where('id', $id)->delete();
+
+        return redirect()->back();
+    }
+
+    public function roomScheduleDelete($id)
+    {
+        RoomSchedule::where('id', $id)->delete();
+
+        return redirect()->back();
+    }
 }

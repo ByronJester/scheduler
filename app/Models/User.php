@@ -22,7 +22,9 @@ class User extends Authenticatable
         'email',
         'password',
         'user_type',
-        'fingerprint_id'
+        'fingerprint_id',
+        'time_in',
+        'time_out'
     ];
 
     /**

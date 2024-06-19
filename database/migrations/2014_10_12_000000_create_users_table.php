@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('user_type');
             $table->longText('fingerprint_id')->nullable();
+            $table->time('time_in')->nullable();;
+            $table->time('time_out')->nullable();;
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

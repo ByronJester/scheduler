@@ -51,7 +51,7 @@ import Table from '@/Components/Table.vue';
 
                     <div class="w-full">
                         <Table :headers="roomSchedulesTableHeader" :rows="roomSchedules"  :hasActions="true"
-                            @edit="handleEditRoomSchedule" @delete="handleTeacherDeleteSchedule"
+                            @edit="handleEditRoomSchedule" @delete="handleRoomDeleteSchedule"
                         />
                     </div>
                 </div>
@@ -80,7 +80,7 @@ import Table from '@/Components/Table.vue';
 
                     <div class="w-full">
                         <Table :headers="teacherSchedulesTableHeader" :rows="teacherSchedules"  :hasActions="true"
-                            @edit="handleEditTeacherSchedule" @delete="handleRoomDeleteSchedule"
+                            @edit="handleEditTeacherSchedule" @delete="handleTeacherDeleteSchedule"
                         />
                     </div>
 
@@ -140,7 +140,7 @@ export default {
         },
         handleTeacherDeleteSchedule(id) {
             // Handle delete action, e.g., show confirmation dialog
-            console.log('Delete action clicked for row with id:', id);
+            this.$inertia.post(`/maintenance/teacher-schedule/${id}/delete`);
         },
         handleEditRoomSchedule(id) {
             // Handle edit action, e.g., show edit form/dialog
@@ -148,7 +148,8 @@ export default {
         },
         handleRoomDeleteSchedule(id) {
             // Handle delete action, e.g., show confirmation dialog
-            console.log('Delete action clicked for row with id:', id);
+            alert()
+            this.$inertia.post(`/maintenance/room-schedule/${id}/delete`);
         },
         downloadRoomCsv(){
             const csvFilePath = '/csv/room_schedule_format.csv';

@@ -22,7 +22,7 @@
           <td v-if="hasActions" class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
             <!-- Action buttons -->
             <button @click="editAction(row.id)"><i class="fa-solid fa-pen-to-square mx-2 text-blue-400"></i></button>
-            <button @click="deleteAction(row.id)"><i class="fa-solid fa-trash mx-2 text-rose-500 hidden"></i></button>
+            <button @click="deleteAction(row.id)"><i class="fa-solid fa-trash mx-2 text-rose-500"></i></button>
           </td>
         </tr>
       </tbody>
