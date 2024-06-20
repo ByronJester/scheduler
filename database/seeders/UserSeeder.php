@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\User;
+use App\Models\{
+    User, Trigger
+};
 use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
@@ -59,6 +61,10 @@ class UserSeeder extends Seeder
             'user_type' => 'teacher',
             'password' => Hash::make('password'),
             'fingerprint_id' => 5
+        ]);
+
+        Trigger::create([
+            'access_trigger' => 0
         ]);
     }
 }

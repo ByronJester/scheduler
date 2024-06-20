@@ -8,7 +8,8 @@ use App\Http\Controllers\
 {
     ScheduleController,
     MaintenanceController,
-    CsvUploadController
+    CsvUploadController,
+    HardwareController
 };
 
 /*
@@ -65,6 +66,9 @@ Route::post('/upload-csv', [MaintenanceController::class, 'upload'])->name('csv.
 Route::get('/alive', function () {
     return response()->json("Keep Alive!", 200);
 });
+
+Route::get('/hardware/check-access', [HardwareController::class, 'checkAccess'])->name('hardware.check.access');
+
 
 
 require __DIR__.'/auth.php';
