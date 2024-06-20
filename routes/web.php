@@ -68,6 +68,8 @@ Route::get('/alive', function () {
 });
 
 Route::get('/hardware/check-access', [HardwareController::class, 'checkAccess'])->name('hardware.check.access');
+Route::get('/hardware/update-trigger', [HardwareController::class, 'updateTriger'])->name('hardware.update.trigger');
+Route::get('/hardware/check-trigger', [HardwareController::class, 'checkTrigger'])->name('hardware.update.trigger');
 
 
 

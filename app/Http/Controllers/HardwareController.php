@@ -14,8 +14,6 @@ class HardwareController extends Controller
     public function checkAccess(Request $request)
     {
         $id = $request->query('id');
-        $trigger = $request->query('access_trigger');
-
         $user = null;
 
         if(!!$id) {
@@ -36,7 +34,7 @@ class HardwareController extends Controller
 
             if($isCorrect) {
                 $triggerData = Trigger::first();
-                $triggerData->access_trigger = $trigger;
+                $triggerData->access_trigger = 1;
 
                 if($triggerData->save()) {
                     return response()->json("Trigger updated successfully.");
@@ -51,5 +49,30 @@ class HardwareController extends Controller
         }
 
         // return response()->json('asdasd');
+    }
+
+    public function updateTriger(Request $request)
+    {
+        $trigger = $request->query('access_trigger');
+
+        if(!!$trigger) {
+            $triggerData = Trigger::first();
+            $triggerData->access_trigger = $trigger;
+
+            if($triggerData->save()) {
+                return response()->json("Record updated successfully.");
+            } else {
+                return response()->json("Error updating record.");
+            }
+        } else {
+            return response()->json("Invalid parameters");
+        }
+    }
+
+    public function checkTrigger(Request $request)
+    {
+        $trigger = Trigger::first();
+
+        return response()->json($trigger);
     }
 }
