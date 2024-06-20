@@ -55,7 +55,7 @@ class HardwareController extends Controller
     {
         $trigger = $request->query('access_trigger');
 
-        if(!!$trigger) {
+        if($trigger != null && $trigger != '') {
             $triggerData = Trigger::first();
             $triggerData->access_trigger = $trigger;
 
